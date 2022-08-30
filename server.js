@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static("public"));
 
-const httpServer = app.listen(8000);
+const httpServer = app.listen(process.env.PORT || 8000);
 const io = new Server(httpServer);
 
 let allInputs = [];
