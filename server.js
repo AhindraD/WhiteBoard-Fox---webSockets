@@ -1,11 +1,15 @@
 const express = require("express");
 const { Server } = require("socket.io");
 const cors = require("cors");
+
 const app = express();
-
 app.use(express.static("public"));
+app.use(cors());
 
-const httpServer = app.listen(process.env.PORT || 8000);
+const httpServer = app.listen(process.env.PORT || 8000,()=>{
+    const port=httpServer.address().port;
+    //console.log(`Server running on ${port}`);
+});
 const io = new Server(httpServer);
 
 let allInputs = [];
