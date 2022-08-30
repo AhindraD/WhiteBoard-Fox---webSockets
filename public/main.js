@@ -1,4 +1,4 @@
-const socket = io.connect("http://localhost:8000/")
+const socket = io.connect(location.origin);//("http://localhost:8000/")
 const inputEl = document.querySelector('.message');
 
 const colorR = Math.floor(Math.random() * 256);
